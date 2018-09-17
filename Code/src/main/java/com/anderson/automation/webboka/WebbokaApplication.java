@@ -1,20 +1,30 @@
 package com.anderson.automation.webboka;
 
+import java.util.Collections;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+
+import com.anderson.automation.webboka.infra.CustomerRepository;
+import com.anderson.automation.webboka.model.Customer;
 
 
 @SpringBootApplication
+@ComponentScan("com.anderson.automation")
 public class WebbokaApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(WebbokaApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebbokaApplication.class, args);
+		SpringApplication app = new SpringApplication(WebbokaApplication.class);
+		app.setDefaultProperties(Collections.singletonMap("server.port", 8090));
+		
+		app.run(args);
 	}
 	
 	@Bean

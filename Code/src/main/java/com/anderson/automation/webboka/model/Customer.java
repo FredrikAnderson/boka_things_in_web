@@ -1,5 +1,4 @@
-// tag::sample[]
-package com.anderson.automation.webboka;
+package com.anderson.automation.webboka.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
