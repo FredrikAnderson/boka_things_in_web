@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Item {
@@ -17,14 +19,19 @@ public class Item {
     private String name;
 
     private String comment;
-    
+
     private String brand;
+
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
     
     private Float height;
     
     private Float width;
     
     private Float depth;
+
     
     private Date changedDate;
     
@@ -33,11 +40,6 @@ public class Item {
 
     public Item(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Item [id=%d, name='%s']", id, name);
     }
 
 	public Long getId() {
@@ -99,5 +101,20 @@ public class Item {
     public void setChangedDate(Date changedDate) {
         this.changedDate = changedDate;
     }
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	
+	
+    @Override
+    public String toString() {
+        return String.format("Item [id=%d, name='%s']", id, name);
+    }
+
 }
 
