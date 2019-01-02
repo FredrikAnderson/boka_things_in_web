@@ -1,4 +1,4 @@
-package com.anderson.automation.webboka;
+package com.anderson.automation.ui;
 
 import javax.validation.Valid;
 
