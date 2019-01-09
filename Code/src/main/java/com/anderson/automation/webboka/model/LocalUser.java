@@ -11,8 +11,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class LocalUser {
 
-    @Id    
-    private String userName;
+    @Id
+    private String username;
 
     private String password;
 
@@ -32,16 +32,16 @@ public class LocalUser {
     public LocalUser() {}
 
     public LocalUser(String name) {
-        this.setUserName(name);
+        this.setUsername(name);
     }
 	
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {
@@ -87,8 +87,7 @@ public class LocalUser {
 	
     @Override
     public String toString() {
-        return String.format("LocalUser [userName='%s']", getUserName());
+        return String.format("LocalUser [userName='%s']", getUsername());
     }
 
 }
-

@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		LocalUser user = userDetailsRepo.findUserByUserName(username);
+		LocalUser user = userDetailsRepo.findUserByUsername(username);		
 		UserBuilder builder = null;
 		if (user != null) {
 
@@ -29,9 +29,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //      builder.disabled(!user.isEnabled());
 			builder.disabled(false);
 			builder.password(user.getPassword());
-//      String[] authorities = user.getAuthorities()
-//          .stream().map(a -> a.getAuthority()).toArray(String[]::new);
-//      builder.authorities(authorities);
+			String[] authorities = {}; // user.getAuthorities().stream().map(a -> a.getAuthority()).toArray(String[]::new);
+			builder.authorities(authorities);
 
 		} else {
 			throw new UsernameNotFoundException("User not found.");

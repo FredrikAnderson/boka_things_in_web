@@ -6,5 +6,5 @@ import com.anderson.automation.webboka.model.LocalUser;
 
 public interface LocalUserRepository extends CrudRepository<LocalUser, Long> {
 
-	LocalUser findUserByUserName(String userName);
+	LocalUser findUserByUsername(String username);
 }
